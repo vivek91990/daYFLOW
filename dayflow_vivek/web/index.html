@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f2fb">
+  <meta name="description" content="Dayflow by Vivek. A calm, colorful space to plan your day.">
+  <title>Dayflow · Made by Vivek</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="aurora">
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div id="splash" class="splash">
+    <div class="splash-orb"><span>✦</span></div>
+    <div class="splash-name">dayflow<span>.</span></div>
+    <div class="splash-credit">MADE WITH INTENTION BY <b>VIVEK</b></div>
+    <div class="splash-line"><i></i></div>
+  </div>
+
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar">
+      <a class="brand" href="#home"><span class="brand-mark">d<span>✦</span></span><span>dayflow<small>YOUR SPACE TO DO</small></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-link active" data-view="today"><span class="nav-ico">◷</span> My day <span class="nav-count" id="sideTodayCount">0</span></button>
+      <button class="nav-link" data-view="upcoming"><span class="nav-ico">▦</span> Upcoming</button>
+      <button class="nav-link" data-view="completed"><span class="nav-ico">✓</span> Completed</button>
+      <div class="side-label side-label-gap">YOUR FOCUS</div>
+      <button class="nav-link" data-filter="Study"><span class="dot dot-lilac"></span> Study</button>
+      <button class="nav-link" data-filter="Work"><span class="dot dot-blue"></span> Work</button>
+      <button class="nav-link" data-filter="Personal"><span class="dot dot-peach"></span> Personal</button>
+      <button class="nav-link" data-filter="Wellness"><span class="dot dot-green"></span> Wellness</button>
+      <div class="sidebar-bottom">
+        <div class="mini-quote"><span>✧ A gentle reminder</span><p>Small steps still move you forward.</p></div>
+        <button class="nav-link" id="settingsBtn"><span class="nav-ico">⚙</span> Appearance & data</button>
+        <div class="profile-row"><div class="avatar">V</div><div><b>Vivek</b><small>Personal workspace</small></div><span class="profile-spark">✦</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">d<span>✦</span></span><b>dayflow<span>.</span></b></div>
+        <div class="breadcrumb"><span>Workspace</span><i>/</i><b id="crumb">My day</b></div>
+        <div class="top-actions">
+          <button class="icon-btn" id="searchBtn" aria-label="Search tasks" title="Search">⌕</button>
+          <button class="icon-btn theme-shortcut" id="quickTheme" aria-label="Change theme" title="Change theme">◐</button>
+          <button class="avatar top-avatar" id="profileBtn" aria-label="About Dayflow">V</button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="welcome-row">
+          <div><div class="eyebrow" id="dateLabel">YOUR DAY, YOUR PACE</div><h1 id="pageTitle">Make space for<br><em>what matters.</em></h1><p class="welcome-sub" id="pageSubtitle">A little progress, beautifully planned.</p></div>
+          <div class="welcome-art" aria-hidden="true"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="art-star">✦</div><div class="art-core"></div><span class="art-dot"></span></div>
+        </section>
+
+        <section class="overview-grid">
+          <div class="progress-card">
+            <div class="card-topline"><div><span class="card-kicker">DAILY PROGRESS</span><h2>You’re finding your flow.</h2></div><span class="sun-icon">☼</span></div>
+            <div class="progress-content"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-bottom"><b id="progressText">0% complete</b><span id="progressCount">0 of 0 tasks</span></div></div>
+            <div class="progress-glow"></div>
+          </div>
+          <div class="stat-card stat-total"><div class="stat-icon">✧</div><span class="card-kicker">ON YOUR LIST</span><strong id="totalStat">0</strong><small>things to move forward</small></div>
+          <div class="stat-card stat-done"><div class="stat-icon">✓</div><span class="card-kicker">COMPLETED</span><strong id="doneStat">0</strong><small>little wins, collected</small></div>
+        </section>
+
+        <section class="planner-section">
+          <div class="section-heading"><div><span class="card-kicker">THE PLAN</span><h2 id="listHeading">Today’s tasks <span class="heading-spark">✦</span></h2></div><button class="text-btn" id="sortBtn">Sort by <b>time ↕</b></button></div>
+          <div class="calendar-strip" id="calendarStrip" aria-label="Choose a day"></div>
+          <div class="filter-row" id="filterRow"><button class="filter-chip selected" data-category="All">All tasks <span id="allCount">0</span></button><button class="filter-chip" data-category="Study">Study</button><button class="filter-chip" data-category="Work">Work</button><button class="filter-chip" data-category="Personal">Personal</button><button class="filter-chip" data-category="Wellness">Wellness</button></div>
+          <div class="task-list" id="taskList"></div>
+          <div class="empty-state" id="emptyState" hidden><div class="empty-illustration"><span>✦</span><i></i><b>✓</b></div><h3>A clear space to begin.</h3><p>Add one small task. Let momentum do the rest.</p><button class="primary-btn" id="emptyAdd">＋ Create your first task</button></div>
+        </section>
+        <footer class="footer-note"><span>Designed for a clearer mind.</span><span>DAYFLOW <b>✦</b> BY VIVEK</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav"><button class="mobile-nav-item active" data-view="today"><span>◷</span>Today</button><button class="mobile-nav-item" data-view="upcoming"><span>▦</span>Upcoming</button><button class="mobile-add" id="mobileAdd">＋</button><button class="mobile-nav-item" data-view="completed"><span>✓</span>Done</button><button class="mobile-nav-item" id="mobileSettings"><span>◐</span>Style</button></nav>
+  <button class="fab" id="addBtn" aria-label="Add task"><span>＋</span><b>New task</b></button>
+
+  <div class="modal-backdrop" id="taskModal" aria-hidden="true"><section class="modal task-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><div><span class="card-kicker">MAKE IT HAPPEN</span><h2 id="modalTitle">A new little win.</h2></div><button class="close-btn" data-close="taskModal">×</button></div><form id="taskForm"><input type="hidden" id="taskId"><label class="field-label" for="taskTitle">Task name</label><input class="text-input title-input" id="taskTitle" maxlength="90" placeholder="What would you like to get done?" required><label class="field-label" for="taskNotes">A little detail <span>OPTIONAL</span></label><textarea class="text-input" id="taskNotes" rows="2" maxlength="240" placeholder="Add a note, link or reminder..."></textarea><div class="form-grid"><div><label class="field-label" for="taskDate">Date</label><input class="text-input" type="date" id="taskDate" required></div><div><label class="field-label" for="taskTime">Time</label><input class="text-input" type="time" id="taskTime"></div></div><div class="form-grid"><div><label class="field-label" for="taskCategory">Focus area</label><select class="text-input" id="taskCategory"><option>Personal</option><option>Study</option><option>Work</option><option>Wellness</option></select></div><div><label class="field-label" for="taskPriority">Priority</label><select class="text-input" id="taskPriority"><option value="low">Low key</option><option value="medium" selected>Important</option><option value="high">Top priority</option></select></div></div><div class="modal-actions"><button type="button" class="soft-btn" data-close="taskModal">Cancel</button><button type="submit" class="primary-btn" id="saveTaskBtn">Save task <span>↗</span></button></div></form></section></div>
+
+  <div class="modal-backdrop" id="settingsModal" aria-hidden="true"><section class="modal settings-modal" role="dialog" aria-modal="true"><div class="modal-head"><div><span class="card-kicker">MAKE IT YOURS</span><h2>Your kind of day.</h2></div><button class="close-btn" data-close="settingsModal">×</button></div><p class="settings-copy">Choose a visual mood. Your tasks stay the same, your space gets a new feeling.</p><div class="theme-grid"><button class="theme-option" data-theme-choice="aurora"><i class="swatch swatch-aurora"></i><b>Aurora</b><small>Soft violet · cloud</small></button><button class="theme-option" data-theme-choice="noir"><i class="swatch swatch-noir"></i><b>After dark</b><small>Midnight · electric</small></button><button class="theme-option" data-theme-choice="peach"><i class="swatch swatch-peach"></i><b>Peach bloom</b><small>Warm · optimistic</small></button><button class="theme-option" data-theme-choice="mint"><i class="swatch swatch-mint"></i><b>Fresh mint</b><small>Calm · focused</small></button></div><div class="settings-divider"></div><div class="data-actions"><div><b>Your data, your device.</b><small>Tasks are saved locally in this browser/app.</small></div><div class="backup-buttons"><button class="soft-btn" id="exportBtn">Export JSON ↓</button><button class="soft-btn" id="importBtn">Import backup ↑</button></div></div><div class="data-actions"><div><b>Need a fresh start?</b><small>Delete all tasks from this device.</small></div><button class="danger-btn" id="clearBtn">Clear tasks</button></div><div class="made-by">A tiny tool for big ideas. <b>Made by Vivek</b> ✦</div></section></div>
+
+  <div class="modal-backdrop" id="searchModal" aria-hidden="true"><section class="modal search-modal"><div class="modal-head"><div><span class="card-kicker">FIND YOUR NEXT MOVE</span><h2>Search your plans.</h2></div><button class="close-btn" data-close="searchModal">×</button></div><input class="text-input search-input" id="searchInput" placeholder="Search task names, notes, focus areas..." autocomplete="off"><div id="searchResults" class="search-results"></div></section></div>
+  <div class="toast" id="toast" role="status"></div>
+  <input type="file" id="importFile" accept="application/json" hidden>
+  <script src="app.js"></script>
+</body>
+</html>
